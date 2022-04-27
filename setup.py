@@ -10,7 +10,7 @@ classifiers = [
  
 setup(
   name='newtonEQ',
-  version='0.0.2',
+  version='0.0.3',
   description='A library of useful college physics formulas',
   long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
   url='',  
