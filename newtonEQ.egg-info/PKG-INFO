@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: newtonEQ
-Version: 0.0.2
+Version: 0.0.3
 Summary: A library of useful college physics formulas
 Home-page: UNKNOWN
 Author: Simon Varadaraj
@@ -34,4 +34,10 @@ Change Log
 - Added functions to convert non-SI Units to SI (for displacement and velocity)
 - Added conversion from rotational to translational units (annd vise-versa)
 - Added basic functions for mechanical energies 
+
+0.0.3 (04/27/2022)
+------------------
+- Added parameter and return values in the Docstrings
+- Added clearer parameter guidelines for "moment"
+- clearer TypeError system
 
