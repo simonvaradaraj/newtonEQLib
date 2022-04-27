@@ -219,8 +219,21 @@ def moments(shape, axis):
         [string] axis - an abbreviated description of the axis
     
     Return:
-        a function that calulates the moment of interia for the given cirumstance
+        a lambda function that calulates the moment of interia for the given cirumstance
+
+    Valid Shapes:
+        'thin cylinder', 
+        'thick cylinder', 
+        'solid cylinder',  
+        'hollow ball', 
+        'solid ball', 
+        'thin rod', 
+        'thin stick'
     
+    Valid Axis:
+        'parr' - parralel
+        'perp' - perpendicular
+        'edge' - only for the rod/stick
     '''
 
     valid_shapes = ['thin cylinder', 'thick cylinder', 'solid cylinder',  'hollow ball', 'solid ball', 'thin rod', 'thin stick']
