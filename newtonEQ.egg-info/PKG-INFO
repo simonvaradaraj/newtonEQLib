@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: newtonEQ
-Version: 0.0.3
+Version: 0.0.4
 Summary: A library of useful college physics formulas
 Home-page: UNKNOWN
 Author: Simon Varadaraj
@@ -40,4 +40,12 @@ Change Log
 - Added parameter and return values in the Docstrings
 - Added clearer parameter guidelines for "moment"
 - clearer TypeError system
+
+0.0.4 (04/27/2022)
+------------------
+- Fixed error with vmag
+- Added additional vector functions (dotprod, anglebetween)
+- Added functions to convert rad to degrees (and vise-versa)
+- Rearranged the general layout of the code
+- Added cross product
 

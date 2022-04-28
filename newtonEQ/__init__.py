@@ -1,5 +1,7 @@
-# from logging.config import valid_ident
-# from multipledispatch import dispatch
+from tokenize import Number
+from turtle import dot
+from unicodedata import numeric
+from multipledispatch import dispatch
 from math import *
 
 GRAVITY = 9.81
@@ -60,6 +62,14 @@ def vSI(val, units):
     
     return val
 
+def radtodeg(x):
+    '''Coverts an angle in radians to degrees'''
+    return (x/(2*pi)) * 360
+
+def degtorad(x):
+    '''Coverts an angle in degrees to radians'''
+    return (x/360) * (2 * pi)
+
 # _________________VECTORS_____________________
 
 # vector magnitude
@@ -75,11 +85,9 @@ def vmag(*args):
     vsum = 0
 
     for arg in args:
-        try:
-            if not(type(args) == int or type(arg) == float): raise TypeError("Invalid value inputted: " + str(arg))
-            vsum += (arg**2)
 
-        except TypeError(): return
+        if type(arg) != int and type(arg) != float: raise TypeError("Invalid value inputted: " + str(arg))
+        vsum += (arg**2)
         
         return (vsum**(1/2))
     
@@ -95,17 +103,87 @@ def vcomp(mag, angle, unit):
         the cos and sin component of the vector as a tuple
 
     '''
-    tol = 1e-5
+    tol = 1e-2
     if unit[0] == "D" or unit[0] == "d":
-        returnval = [(mag * cos(((2*pi)/360)*angle)) ,((mag * sin(((2*pi)/360)*angle)))]
+        returnval = [(mag * cos(degtorad(angle))) , (mag * sin(degtorad(angle)))]
     else:
         returnval = [(mag * cos(angle)) ,(mag * sin(angle))]
     
     for i in range(len(returnval)):
         if abs(returnval[i]) <= tol:
             returnval[i] = 0;
+        if abs(returnval[i] - round(returnval[i])) < tol:
+            returnval[i] = round(returnval[i])
     
-    return tuple(returnval);
+    return tuple(returnval)
+
+def dotprod(va, vb):
+    '''finds the scalar product of the vectors given
+    
+    Parameters:
+        [tuple] va, vb - vector components
+    
+    Return:
+        the dot product of the vectors
+
+    '''
+    return (va[0] * vb[0] + va[1] * vb[1])
+
+def crossprod(m1, m2, a, unit):
+    '''finds the vector product of the vectors given
+    
+    Parameters:
+        [tuple] va, vb - vector components
+    
+    Return:
+        the dot product of the vectors
+
+    '''
+    if unit[0] == 'd' or unit[0] == 'D': unit = degtorad(a)
+    return m1*m2*sin(a)
+
+def anglebetween(va, vb, unit):
+    '''finds the angle between two vectors
+    
+    Parameters:
+        [tuple or set] va, vb - vector components
+        [string] unit - either "deg" or "rad"
+    
+    Return:
+        the angle between the two vectors
+
+    '''
+
+    if unit[0] != 'd' and unit[0] != 'D': return acos(dotprod(va, vb) / (vmag(va[0], va[1]) * vmag(vb[1], vb[1])))
+    else: return radtodeg(acos(dotprod(va, vb) / (vmag(va[0], va[1]) * vmag(vb[1], vb[1]))))
+
+# _________CONVERTING BETWEEN TRANSLATION TO ROTATION___________
+
+def convertrot(val, r):
+    '''converts value to rotational counterpart
+    
+    Parameters:
+        [int or float] val - numerical value in translational SI units
+        [int or float] r - radius 
+    
+    Return:
+        the value represented in rotational SI units
+    
+    '''
+    return val / r
+
+def converttrans(val, r):
+    '''converts value to translational counterpart
+    
+    Parameters:
+        [int or float] val - numerical value in rotational SI units
+        [int or float] r - radius 
+    
+    Return:
+        the value represented in translational SI units
+    
+    '''
+    return val * r
 
 # _________________QUADRATIC FORMULA_____________________
 
@@ -180,34 +258,6 @@ def vfroma(a, t):
     
     '''
     return  a * t
-
-# _________CONVERTING BETWEEN TRANSLATION TO ROTATION___________
-
-def convertrot(val, r):
-    '''converts value to rotational counterpart
-    
-    Parameters:
-        [int or float] val - numerical value in translational SI units
-        [int or float] r - radius 
-    
-    Return:
-        the value represented in rotational SI units
-    
-    '''
-    return val / r
-
-def converttrans(val, r):
-    '''converts value to translational counterpart
-    
-    Parameters:
-        [int or float] val - numerical value in rotational SI units
-        [int or float] r - radius 
-    
-    Return:
-        the value represented in translational SI units
-    
-    '''
-    return val * r
 
 # __________________MOMENTS OF INERTIA_____________________
 
@@ -308,5 +358,3 @@ def springwork(k, x):
     
     '''
     return kinetic(k, x)
-
-

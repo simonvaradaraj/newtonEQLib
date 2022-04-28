@@ -7,10 +7,11 @@ classifiers = [
   'License :: OSI Approved :: MIT License',
   'Programming Language :: Python :: 3'
 ]
+
  
 setup(
   name='newtonEQ',
-  version='0.0.3',
+  version='0.0.4',
   description='A library of useful college physics formulas',
   long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
   url='',  
