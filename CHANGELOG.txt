@@ -32,5 +32,9 @@ Change Log
 
 0.0.5 (04/27/2022)
 ------------------
-- crossproduct is fixed now
-- added multipledispatch as a dependency
+- Crossproduct is fixed now
+- Added multipledispatch as a dependency
+
+0.0.7 (04/30/2022)
+------------------
+- Changed README to be a .md rather than .txt file
