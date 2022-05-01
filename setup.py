@@ -11,10 +11,11 @@ classifiers = [
  
 setup(
   name='newtonEQ',
-  version='0.0.5',
+  version='0.0.7',
   description='A library of useful college physics formulas',
-  long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
-  url='',  
+  long_description=open('README.md').read() + '\n\n' + open('CHANGELOG.txt').read(),
+  long_description_content_type = "text/markdown",
+  url='https://github.com/simonvaradaraj/newtonEQLib',  
   author='Simon Varadaraj',
   author_email='s.varadaraj03@gmail.com',
   license='MIT', 

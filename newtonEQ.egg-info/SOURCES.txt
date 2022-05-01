@@ -1,7 +1,7 @@
 CHANGELOG.txt
 LICENCE.txt
 MANIFEST.in
-README.txt
+README.md
 setup.py
 newtonEQ/__init__.py
 newtonEQ.egg-info/PKG-INFO
