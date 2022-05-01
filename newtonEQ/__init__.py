@@ -1,6 +1,3 @@
-from tokenize import Number
-from turtle import dot
-from unicodedata import numeric
 from multipledispatch import dispatch
 from math import *
 
@@ -139,7 +136,7 @@ def crossprod(m1, m2, a, unit):
         the dot product of the vectors
 
     '''
-    if unit[0] == 'd' or unit[0] == 'D': unit = degtorad(a)
+    if unit[0] == 'd' or unit[0] == 'D': a = degtorad(a)
     return m1*m2*sin(a)
 
 def anglebetween(va, vb, unit):

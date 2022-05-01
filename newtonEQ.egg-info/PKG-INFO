@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: newtonEQ
-Version: 0.0.4
+Version: 0.0.5
 Summary: A library of useful college physics formulas
 Home-page: UNKNOWN
 Author: Simon Varadaraj
@@ -48,4 +48,9 @@ Change Log
 - Added functions to convert rad to degrees (and vise-versa)
 - Rearranged the general layout of the code
 - Added cross product
+
+0.0.5 (04/27/2022)
+------------------
+- crossproduct is fixed now
+- added multipledispatch as a dependency
 

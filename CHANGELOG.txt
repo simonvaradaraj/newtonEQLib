@@ -29,3 +29,8 @@ Change Log
 - Added functions to convert rad to degrees (and vise-versa)
 - Rearranged the general layout of the code
 - Added cross product
+
+0.0.5 (04/27/2022)
+------------------
+- crossproduct is fixed now
+- added multipledispatch as a dependency

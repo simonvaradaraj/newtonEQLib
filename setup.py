@@ -11,7 +11,7 @@ classifiers = [
  
 setup(
   name='newtonEQ',
-  version='0.0.4',
+  version='0.0.5',
   description='A library of useful college physics formulas',
   long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
   url='',  
@@ -21,5 +21,5 @@ setup(
   classifiers=classifiers,
   keywords=['physics', 'college', 'science'], 
   packages=find_packages(),
-  install_requires=[''] 
+  install_requires=['multipledispatch'] 
 )
